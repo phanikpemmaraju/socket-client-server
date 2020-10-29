@@ -1,18 +1,14 @@
-package br.com.boavista.multiscore.serializer;
+package br.com.spring.integration.serializer;
 
-import br.com.boavista.multiscore.dto.SocketData;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.core.serializer.Deserializer;
-
+import br.com.spring.integration.dto.SocketData;
 import java.io.IOException;
 import java.io.InputStream;
+import org.springframework.core.serializer.Deserializer;
 
-@Slf4j
-public class MultiScoreDeserializer implements Deserializer<SocketData> {
+public class CustomDeserializer implements Deserializer<SocketData> {
 
     @Override
     public SocketData deserialize(InputStream inputStream) throws IOException {
-        log.info("Deserialize the object");
         final int BUFFER_SIZE = 32000;
         final int ETX = 0x03;
 
@@ -31,9 +27,8 @@ public class MultiScoreDeserializer implements Deserializer<SocketData> {
 
         // This is a fixed length of 20 characters for UserId and other info.
         final String SOCKETY = "SOCKETY             ";
-        log.info("String : {} ", toString.substring(20));
-        final SocketData socketData = SocketData.builder().data(toString.substring(20)).build();
-        log.info("SocketData object : {} ", socketData.getData());
+        final SocketData socketData = new SocketData();
+        socketData.setData(toString.substring(20));
         return socketData;
     }
 }

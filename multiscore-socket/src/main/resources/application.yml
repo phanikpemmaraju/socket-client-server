@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: multiscore-socket
+    name: socket-integration
   main:
     lazy-initialization: false
 
@@ -35,5 +35,3 @@ management:
 socket:
   host: 'localhost'
   port: 8000
-
-language: cobol

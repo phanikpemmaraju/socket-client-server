@@ -1,4 +1,4 @@
-package br.com.boavista.multiscore.config;
+package br.com.spring.integration.config;
 
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;
@@ -14,9 +14,9 @@ public class OpenApiConfig implements WebMvcConfigurer {
     public OpenAPI customOpenAPI() {
        final License license = new License().name("Apache License Version 2.0").url("https://www.apache.org/licenses/LICENSE-2.0");
         return new OpenAPI().info(new Info()
-                .title("Conversational Program")
+                .title("")
                 .version("1.0")
-                .description("Conversational Programs for AS400/Mainframe")
+                .description("")
                 .license(license)
         );
     }

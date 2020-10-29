@@ -1,8 +1,7 @@
-package br.com.boavista.multiscore.config;
+package br.com.spring.integration.config;
 
-import br.com.boavista.multiscore.serializer.MultiScoreDeserializer;
-import br.com.boavista.multiscore.serializer.MultiScoreSerializer;
-import lombok.extern.slf4j.Slf4j;
+import br.com.spring.integration.serializer.CustomDeserializer;
+import br.com.spring.integration.serializer.CustomSerializer;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -20,7 +19,6 @@ import org.springframework.integration.ip.tcp.connection.ThreadAffinityClientCon
 import org.springframework.messaging.MessageChannel;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
-@Slf4j
 @Configuration
 @EnableIntegration
 @IntegrationComponentScan
@@ -66,14 +64,13 @@ public class SocketConfig {
     // Incoming requests
     @Bean
     public AbstractServerConnectionFactory serverCF() {
-        log.info("Server Connection Factory");
 //        TcpNioServerConnectionFactory tcpNioServerConnectionFactory = new TcpNioServerConnectionFactory(clientSocketPort);
 //        tcpNioServerConnectionFactory.setSingleUse(true);
 //        tcpNioServerConnectionFactory.setSerializer(new MultiScoreSerializer());
 //        tcpNioServerConnectionFactory.setDeserializer(new MultiScoreDeserializer());
         TcpNetServerConnectionFactory tcpNetServerConnectionFactory = new TcpNetServerConnectionFactory(clientSocketPort);
-        tcpNetServerConnectionFactory.setSerializer(new MultiScoreSerializer());
-        tcpNetServerConnectionFactory.setDeserializer(new MultiScoreDeserializer());
+        tcpNetServerConnectionFactory.setSerializer(new CustomSerializer());
+        tcpNetServerConnectionFactory.setDeserializer(new CustomDeserializer());
         tcpNetServerConnectionFactory.setSingleUse(true);
         tcpNetServerConnectionFactory.setTaskExecutor(taskExecutor());
         // Below command gives the list of open connection ids

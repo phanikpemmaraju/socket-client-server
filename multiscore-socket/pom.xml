@@ -3,12 +3,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>br.com.boavista</groupId>
+    <groupId>br.com.test</groupId>
     <artifactId>multiscore-socket</artifactId>
     <packaging>jar</packaging>
 
     <name>multiscore-socket</name>
-    <description>Socket implementation for multiscore</description>
+    <description>Socket implementation</description>
     <version>0.0.1-SNAPSHOT</version>
 
     <properties>
@@ -25,17 +25,6 @@
 
     <dependencies>
 
-        <dependency>
-            <groupId>br.com.boavista</groupId>
-            <artifactId>app-utils</artifactId>
-            <version>${dependencies.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>br.com.boavista</groupId>
-            <artifactId>boavista-main</artifactId>
-            <version>${dependencies.version}</version>
-        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -249,31 +238,5 @@
             </plugin>
         </plugins>
     </build>
-
-    <repositories>
-        <repository>
-            <id>g4-bvs-mvn-artifacts-snapshot</id>
-            <url>gs://g4-bvs-mvn-artifacts/snapshot</url>
-            <releases><enabled>false</enabled></releases>
-            <snapshots><enabled>true</enabled><checksumPolicy>ignore</checksumPolicy></snapshots>
-        </repository>
-        <repository>
-            <id>g4-bvs-mvn-artifacts-release</id>
-            <url>gs://g4-bvs-mvn-artifacts/release</url>
-            <releases><enabled>true</enabled><checksumPolicy>ignore</checksumPolicy></releases>
-            <snapshots><enabled>false</enabled></snapshots>
-        </repository>
-    </repositories>
-
-    <distributionManagement>
-        <snapshotRepository>
-            <id>g4-bvs-mvn-artifacts-snapshot</id>
-            <url>gs://g4-bvs-mvn-artifacts/snapshot</url>
-        </snapshotRepository>
-        <repository>
-            <id>g4-bvs-mvn-artifacts-release</id>
-            <url>gs://g4-bvs-mvn-artifacts/release</url>
-        </repository>
-    </distributionManagement>
 
 </project>

@@ -1,12 +1,12 @@
-package br.com.boavista.multiscore;
+package br.com.spring.integration;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MultiScoreSocketApplication {
+public class SocketApplication {
 
    public static void main(String[] args) {
-      SpringApplication.run(MultiScoreSocketApplication.class, args);
+      SpringApplication.run(SocketApplication.class, args);
    }
 }
