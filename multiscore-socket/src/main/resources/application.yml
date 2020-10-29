@@ -1,0 +1,39 @@
+server:
+  port: ${appPort:2443}
+
+spring:
+  application:
+    name: multiscore-socket
+  main:
+    lazy-initialization: false
+
+logging:
+  level:
+    root: DEBUG
+  pattern:
+    console: '[%d{yyyy-MM-dd HH:mm:ss.SSS}] %-5level [%t] [%logger - %line]: %m%n'
+
+springdoc:
+  api-docs:
+    path: '/api-docs.json'
+  swagger-ui:
+    path: '/api-docs'
+
+management:
+  endpoints:
+    web:
+      base-path: /manage
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    metrics:
+      enabled: true
+  info:
+    git:
+      mode: full
+
+socket:
+  host: 'localhost'
+  port: 8000
+
+language: cobol
